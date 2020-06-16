@@ -61,7 +61,7 @@ $RootFilePath="c:\NPS\"
 $Groups = @("Domain Admins")
 
 #Define how many days of files to keep (must be shown as negative number)
-$DaysToKeep = -2
+$DaysToKeep = -30
 
 
 $NpsCfgFile = [System.Net.Dns]::GetHostName() + "_NpsCfg.xml"
