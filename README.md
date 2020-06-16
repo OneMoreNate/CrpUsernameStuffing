@@ -26,10 +26,10 @@ The "AD DS and AD LDS Tools" under the Remote Server Administration Tools/Role A
 -The Connection Request Policy name that is used CANNOT have spaces or special characters in the name.  Must be alphanumeric.
 
 How to use:
--Define the name of the Connection Request Policy ($CrpName). This is the name you gave the CRP in NPS.
--Create the directory C:\NPS (or define another path in the script, $RootFilePath)
--Define the AD Group(s) ($Groups)
--Run script manually to test, then it's recommended you set up a scheduled task to run periodically
+ -Define the name of the Connection Request Policy ($CrpName). This is the name you gave the CRP in NPS.
+ -Create the directory C:\NPS (or define another path in the script, $RootFilePath)
+ -Define the AD Group(s) ($Groups)
+ -Run script manually to test, then it's recommended you set up a scheduled task to run periodically
  
 Running:
 -When the script runs it will create two output files.  One is a backup of the original configuration file (XML), the
