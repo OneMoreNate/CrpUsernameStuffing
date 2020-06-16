@@ -61,11 +61,10 @@ $RootFilePath="c:\NPS\"
 $Groups = @("Domain Admins")
 
 #Define how many days of files to keep (must be shown as negative number)
-$DaysToKeep = -7
+$DaysToKeep = -2
 
 
 $NpsCfgFile = [System.Net.Dns]::GetHostName() + "_NpsCfg.xml"
-Export-NpsConfiguration -Path "$RootFilePath $NpsCfgFile"
 $Timestamp = "$((Get-Date).ToString("yyyyMMdd_HHmmss"))"
 $MemberList = $Timestamp
 $ExportFilePath = $RootFilePath + $NpsCfgFile
@@ -100,5 +99,12 @@ $UsernameNode.'#text' = 'MATCH("User-Name='+$memberlist+'")'
 $NPSxml.Save($ExportFilePath)
 Import-NpsConfiguration -Path $ExportFilePath
 $limit = (Get-Date).AddDays($DaysToKeep).Date
-Get-ChildItem -Path $RootFilePath -Include *.xml -Recurse -Force | Where { $_.CreationTime -lt $limit } | Remove-Item -Force
-Get-ChildItem -Path $RootFilePath -Include *.txt -Recurse -Force | Where { $_.CreationTime -lt $limit } | Remove-Item -Force
+
+$ArchiveLogs = $RootFilePath + "Archive\"
+$ArchiveTime = (Get-Date).AddMinutes(-1)
+Get-ChildItem -Path $RootFilePath -Include *.xml -Recurse -Force | Where { $_.CreationTime -lt $ArchiveTime } | Move-Item -Destination $ArchiveLogs
+Get-ChildItem -Path $RootFilePath -Include *.txt -Recurse -Force | Where { $_.CreationTime -lt $ArchiveTime } | Move-Item -Destination $ArchiveLogs
+
+#Deleting Old Files
+Get-ChildItem -Path $ArchiveLogs -Include *.xml -Recurse -Force | Where { $_.CreationTime -lt $limit } | Remove-Item -Force
+Get-ChildItem -Path $ArchiveLogs -Include *.txt -Recurse -Force | Where { $_.CreationTime -lt $limit } | Remove-Item -Force
