@@ -11,7 +11,7 @@ Also, when the MFA Extension is installed on the NPS server, the NPS is unable t
 to the RADIUS clients when the users Auth Method requires the use of a One Time Passcode(OTP), such as  
 SMS, Authenticator App Passcode or Hardware FOB.
  
-The script will enumerate all the members of the defined Group(s) and populate the defined CRP ($CrpName)
+The script will enumerate all the members of the defined Group(s), from the defined domains, and populate the defined CRP ($CrpName)
 with those members samAccountNames adding a logical OR (|) value between each.  It is recommended that you setup 
 AD Groups for this purpose, for ease of management.
 
