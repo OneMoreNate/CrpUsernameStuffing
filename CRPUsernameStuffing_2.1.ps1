@@ -66,7 +66,7 @@ Function Start-GetUsernames {
 $limit = (Get-Date).AddDays($DaysToKeep).Date
 }
 
-#Domain 1
+#Domain or Policy 1
 $CrpName = "Nathar2016Users"
 $Domain = "nathar2016.lab"
 $DomainUserName = "nathar2016\nate.admin"
@@ -77,7 +77,7 @@ $DomainCreds = New-Object -TypeName System.Management.Automation.PSCredential -A
 $Groups = @("Domain Admins")
 Start-GetUsernames
 
-#Domain 2
+#Domain or Policy 2
 $CrpName = "NateHarrisAzureUsers"
 $Domain = "nateharris.azure"
 $DomainUserName = "nateharrisazure\nate.admin"
