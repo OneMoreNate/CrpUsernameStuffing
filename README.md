@@ -6,8 +6,8 @@ This is a script used to populate a pre-defined NPS Connection Request Policy(CR
 of the members of the specified AD Group. If you wanted to use UPNs instead, you can see the examples below 
 where the UPNs are pulled as well.  So tailor this to your environment.
 
-The purpose of the script is to work around the CRP's inability to inspect group membership as a condition.  
-Also, when the MFA Extension is installed on the NPS server, the NPS is unable to send back user defined attributes
+The purpose of the script is to work around the CRP's inability to inspect group membership as a condition.  Also, 
+when the MFA Extension is installed on the NPS server, the NPS is unable to send back user defined attributes
 to the RADIUS clients when the users Auth Method requires the use of a One Time Passcode(OTP), such as  
 SMS, Authenticator App Passcode or Hardware FOB.
  
