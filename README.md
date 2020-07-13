@@ -11,12 +11,13 @@ Also, when the MFA Extension is installed on the NPS server, the NPS is unable t
 to the RADIUS clients when the users Auth Method requires the use of a One Time Passcode(OTP), such as  
 SMS, Authenticator App Passcode or Hardware FOB.
  
-The script will enumerate all the members of the defined Group(s), from the defined domains, and populate the defined CRP ($CrpName)
-with those members samAccountNames adding a logical OR (|) value between each.  It is recommended that you setup 
-AD Groups for this purpose, for ease of management.
+The script will enumerate all the members of the defined Active Directory Groups from the defined Domains and 
+populate the defined CRPs ($CrpName) with those members samAccountNames.  Each samaccountname is separated with a 
+logical OR (|) value between each, allowing for the inspections of multiple usernames.  It is recommended that you 
+setup AD Groups for this specific purpose, for ease of management.
 
 When the script updates the User Name condition, it will add a timestamp as the first entry so that you can easily
-tell when the last time the script successfully ran.
+tell, by looking at the CRP summary, when the last time the script successfully ran.
 
 <b>Prerequisites:<br></b>
  -Must be run from a machine with the Active Directory cmdlets.  You can get the Active Directory module by installing
