@@ -67,10 +67,10 @@ $limit = (Get-Date).AddDays($DaysToKeep).Date
 }
 
 #Domain or Policy 1
-$CrpName = "Nathar2016Users"
-$Domain = "nathar2016.lab"
-$DomainUserName = "nathar2016\nate.admin"
-$DomainPassword = "n8THEgr8"
+$CrpName = "Domain1Users"
+$Domain = "domain1.lab"
+$DomainUserName = "domain1\admin"
+$DomainPassword = "password"
 $EncryptedPassword = ConvertTo-SecureString -String $DomainPassword -AsPlainText -Force
 $DomainCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $DomainUserName, $EncryptedPassword
 #$Groups = @("UsernameGroup3", "Domain Admins")
@@ -78,10 +78,10 @@ $Groups = @("Domain Admins")
 Start-GetUsernames
 
 #Domain or Policy 2
-$CrpName = "NateHarrisAzureUsers"
-$Domain = "nateharris.azure"
-$DomainUserName = "nateharrisazure\nate.admin"
-$DomainPassword = "n8THEgr8"
+$CrpName = "Domain2Users"
+$Domain = "domain2.corp"
+$DomainUserName = "domain2\admin"
+$DomainPassword = "password"
 $EncryptedPassword = ConvertTo-SecureString -String $DomainPassword -AsPlainText -Force
 $DomainCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $DomainUserName, $EncryptedPassword
 #$Groups = @("UsernameGroup3", "Domain Admins")
