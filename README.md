@@ -8,8 +8,8 @@ where the UPNs are pulled as well.  So tailor this to your environment.
 
 The purpose of the script is to work around the CRP's inability to inspect group membership as a condition.  Also, 
 when the MFA Extension is installed on the NPS server, the NPS is unable to send back user defined attributes
-to the RADIUS clients when the users Auth Method requires the use of a One Time Passcode(OTP), such as  
-SMS, Authenticator App Passcode or Hardware FOB.
+to the RADIUS clients when the users Auth Method requires the use of a One Time Passcode(OTP), such as SMS, 
+Authenticator App Passcode or Hardware FOB.
  
 The script will enumerate all the members of the defined Active Directory Groups from the defined Domains and 
 populate the defined CRPs ($CrpName) with those members samAccountNames.  Each samaccountname is separated with a 
