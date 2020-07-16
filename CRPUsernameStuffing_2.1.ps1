@@ -57,13 +57,10 @@ Function Start-GetUsernames {
     " " |Out-File -Append $MembersTxtFile -NoClobber
     " " |Out-File -Append $MembersTxtFile -NoClobber
     " " |Out-File -Append $MembersTxtFile -NoClobber
-
     $NpsXml=[xml](Get-Content $ExportFilePath)
     $UsernameNode = $NpsXml.SelectSingleNode("//Root/Children/Microsoft_Internet_Authentication_Service/Children/Proxy_Policies/Children/$CrpName/Properties/msNPConstraint[(contains(text(),'MATCH'))]") 
     $UsernameNode.'#text' = 'MATCH("User-Name='+$memberlist+'")'
     $NPSxml.Save($ExportFilePath)
-    Import-NpsConfiguration -Path $ExportFilePath
-$limit = (Get-Date).AddDays($DaysToKeep).Date
 }
 
 #Domain or Policy 1
@@ -89,9 +86,11 @@ $Groups = @("Domain Admins")
 Start-GetUsernames
 
 $DaysToKeep = -7
+$limit = (Get-Date).AddDays($DaysToKeep).Date
 $ArchiveLogs = $RootFilePath + "Archive\"
 $ArchiveTime = (Get-Date).AddMinutes(-1)
 $DeleteTime = (Get-Date).AddDays($DaysToKeep)
+Import-NpsConfiguration -Path $ExportFilePath
 Get-ChildItem -Path $RootFilePath -Include *.xml -Exclude $NpsCfgFile -Recurse -Force | Where { $_.CreationTime -lt $ArchiveTime } | Move-Item -Destination $ArchiveLogs
 Get-ChildItem -Path $RootFilePath -Include *.txt -Recurse -Force | Where { $_.CreationTime -lt $ArchiveTime } | Move-Item -Destination $ArchiveLogs
 Get-ChildItem -Path $ArchiveLogs -Include *.xml -Recurse -Force | Where { $_.CreationTime -lt $DeleteTime } | Remove-Item -Force
