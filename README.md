@@ -13,7 +13,7 @@ Authenticator App Passcode or Hardware FOB.
  
 The script will enumerate all the members of the defined Active Directory Groups from the defined Domains and 
 populate the defined CRPs ($CrpName) with those members samAccountNames.  Each samaccountname is separated with a 
-logical OR (|) value between each, allowing for the inspections of multiple usernames.  It is recommended that you 
+logical OR (|) value between each, allowing for the inspection of multiple usernames.  It is recommended that you 
 setup AD Groups for this specific purpose, for ease of management.
 
 When the script updates the User Name condition, it will add a timestamp as the first entry so that you can easily
