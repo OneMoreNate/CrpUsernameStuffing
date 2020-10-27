@@ -1,6 +1,9 @@
 # CrpUsernameStuffing
 PS Script to stuff usernames into NPS Connection Request Policies
 
+Version 2.5 released 10/25
+-Updated user string regex syntax
+
 <b>What does the script do?</b><br>
 This is a script used to populate a pre-defined NPS Connection Request Policy(CRP) with the samAccountNames 
 of the members of the specified AD Group. If you wanted to use UPNs instead, you can see the examples below 
@@ -47,3 +50,7 @@ not work and you will need to use something like a Get-ADUser -LDAPFilter query 
 <b>Errors:<br></b>
 -If you see "The property '#text' cannot be found on this object. Verify that the property exists and can be set." then the
 policy name you have set does not have a User Name condition added as a condition<br>
+
+<b>REGEX Syntax</b>
+-The script was updated to prepend the username with a ^ and append with a $ to ensure exact username matching.  Without these symbols it will perform a lazy match.  So if you just used a pipe symbol (logical OR) between the usernames it would match "smithb" to "smithb" and "smithbob" and "smithbarry".  So the additional REGEX syntax prevents this lazy match.  However you can customize your syntax in the script by following this excellent article on the use of REGEX:
+https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
