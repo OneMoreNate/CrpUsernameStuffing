@@ -1,7 +1,7 @@
 # CrpUsernameStuffing
 <b>PS Script to stuff usernames into NPS Connection Request Policies</b>
 
-<b>Version 2.5 released 10/25</b>
+<b>Version 2.5 released 10/25</b><br>
 -Updated user string regex syntax
 
 <b>What does the script do?</b><br>
