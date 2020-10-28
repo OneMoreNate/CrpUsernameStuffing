@@ -2,7 +2,9 @@
 <b>PS Script to stuff usernames into NPS Connection Request Policies</b>
 
 <b>Version 2.5 released 10/25</b><br>
--Updated user string regex syntax (see bottom for details)
+-Updated user string regex syntax (see bottom for details)<br>
+
+<b>Tutorial: https://youtu.be/7be2yuOwUHs</b><br>
 
 <b>What does the script do?</b><br>
 This is a script used to populate a pre-defined NPS Connection Request Policy(CRP) with the samAccountNames 
