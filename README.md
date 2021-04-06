@@ -57,4 +57,5 @@ policy name you have set does not have a User Name condition added as a conditio
 -The script was updated to prepend the username with a ^ and append with a $ to ensure exact username matching.  Without these symbols it will perform a "begins with" match.  So if you just used a pipe symbol (logical OR) between the usernames it would match "smithb" to "smithb" and "smithbob" and "smithbarry".  So the additional REGEX syntax prevents this type of matching.  However you can customize your syntax in the script by following this excellent article on the use of REGEX:<br>
 https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
 
+Tracking hits as of 4/6/21
 [![HitCount](http://hits.dwyl.com/nate@nateharriscom/OneMoreNate/CrpUsernameStuffing.svg)](http://hits.dwyl.com/nate@nateharriscom/OneMoreNate/CrpUsernameStuffing)
