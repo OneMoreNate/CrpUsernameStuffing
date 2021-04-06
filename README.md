@@ -58,4 +58,4 @@ policy name you have set does not have a User Name condition added as a conditio
 https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
 
 Tracking hits as of 4/6/21
-[![HitCount](http://hits.dwyl.com/nate@nateharriscom/OneMoreNate/CrpUsernameStuffing.svg)](http://hits.dwyl.com/nate@nateharriscom/OneMoreNate/CrpUsernameStuffing)
+[![HitCount](http://hits.dwyl.com/OneMoreNate/CrpUsernameStuffing.svg)](http://hits.dwyl.com/OneMoreNate/CrpUsernameStuffing)
