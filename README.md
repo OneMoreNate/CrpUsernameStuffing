@@ -38,7 +38,7 @@ The "AD DS and AD LDS Tools" under the Remote Server Administration Tools/Role A
 <b>Running:<br></b>
 -When the script runs it will create two output files.  One is a backup of the original configuration file (XML), the
 other is a text file listing all the members that were exported from the group(s) and added to the condition.<br>
--The script will keep 30 days of backup XML/TXT files AFTER the -WhatIf switch is removed (bottom of script).  You can change this by hanging the $DaysToKeep value.<br>
+-The script will keep 30 days of backup XML/TXT files AFTER the -WhatIf switch is removed (bottom of script).  You can change this by changing the $DaysToKeep value.<br>
 
 <b>Known limitations:<br></b>
 -The User Name field in the NPS MMC has a 256 character limit.  If this is exceeded, then when the field is opened 
