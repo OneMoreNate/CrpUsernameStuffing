@@ -51,7 +51,7 @@ not work and you will need to use something like a Get-ADUser -LDAPFilter query 
 
 <b>Errors:<br></b>
 -If you see "The property '#text' cannot be found on this object. Verify that the property exists and can be set." then the
-policy name you have set does not have a User Name condition added as a condition<br>
+policy name you have set does not have a UserName condition added as a condition.  You must add the UserName condition with any string initially (IE: test) before the script can update the condition with the user names.<br>
 
 <b>REGEX Syntax</b><br>
 -The script was updated to prepend the username with a ^ and append with a $ to ensure exact username matching.  Without these symbols it will perform a "begins with" match.  So if you just used a pipe symbol (logical OR) between the usernames it would match "smithb" to "smithb" and "smithbob" and "smithbarry".  So the additional REGEX syntax prevents this type of matching.  However you can customize your syntax in the script by following this excellent article on the use of REGEX:<br>
