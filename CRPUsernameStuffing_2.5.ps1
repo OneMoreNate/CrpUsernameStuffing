@@ -1,4 +1,4 @@
-# Version 2.5 10/23/2020
+# Version 2.5.1 10/23/2022
 # Author: Nate Harris (nathar@microsoft.com) with help from Clayton Seymour (clayse@microsoft.com).
 # 
 # What does the script do?
@@ -27,6 +27,7 @@
 # Known limitations:
 # -The User Name field in the NPS MMC has a 256 character limit.  If this is exceeded, then when the field is opened through the GUI it will appear empty.  However, you will still see a partial listing when the CRP is highlighted in the MMC.  The only way to see the entire list is through the TXT or XML files this script generates.
 # -Get-ADGroupMember has a limit of 5000 objects it can return, this includes nested groups.  If that is exceeded then the cmdlet fails and no users are returned, clearing out the variable.  This means the policy condition will be empty!  Ensure no group(s) that total more than 5000 members, all together, are used. If you have larger groups, then the Get-ADGroupMember will not work and you will need to use something like a Get-ADUser -LDAPFilter query for the DN of your Group(s).
+# -The name of the Connection Request Policies cannot contain "User-Name" or "Benutzer-Auth", and likely any other localized iteration of "User-Name".  This will cause the script to fail to find the child node with the text value, and you will the error listed below.
 #
 # Errors:
 # -If you see "The property '#text' cannot be found on this object. Verify that the property exists and can be set." then the policy name you have set does not have a User Name condition added as a condition
