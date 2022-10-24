@@ -48,9 +48,12 @@ in the MMC.  The only way to see the entire list is through the TXT or XML files
 then the cmdlet fails and no users are returned, clearing out the variable.  This means the policy condition will be empty!  
 Ensure no group(s) that total more than 5000 members, all together, are used. If you have larger groups, then the Get-ADGroupMember will 
 not work and you will need to use something like a Get-ADUser -LDAPFilter query for the DN of your Group(s).<br>
--The name of the Connection Request Policies cannot contain "User-Name" or "Benutzer-Auth", and likely any other 
+-The name of the Connection Request Policies cannot contain "User-Name" or "Benutzer-Auth"(German), and likely any other 
 localized iteration of "User-Name".  This will cause the script to fail to find the child node with the text value, 
 and you will the error listed below.<br>
+-The use of special characters, such as ones with an umlaut, can result in exports that grow exponentially in size.  It appears that the programmatic export
+process doesn't handle these characters well and you end up with long strings of strange characters that get imported and added to upon the next export.  So avoid special
+characters in the names of the policies.  This includes the Network Policies as they are exported at the same time. <br>
 
 <b>Errors:<br></b>
 -If you see "The property '#text' cannot be found on this object. Verify that the property exists and can be set." then the
