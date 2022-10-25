@@ -31,8 +31,8 @@ tell, by looking at the CRP summary, when the last time the script successfully 
 <b>Prerequisites:<br></b>
  -Must be run from a machine with the Active Directory cmdlets.  You can get the Active Directory module by installing
 The "AD DS and AD LDS Tools" under the Remote Server Administration Tools/Role Administration Tools feature on the server.<br>
- -The Connection Request Policy name that is used CANNOT have spaces or special characters in the name.  Must be alphanumeric.
- -A folder called "Archive" must be in the path you define in the first line of the script.
+ -The Connection Request Policy name that is used CANNOT have spaces or special characters in the name.  Must be alphanumeric.<br>
+ -A folder called "Archive" must be in the path you define in the first line of the script.<br>
 
 <b>How to use:<br></b>
  -Define the name of the Connection Request Policy ($CrpName). This is the name you gave the CRP in NPS.<br>
