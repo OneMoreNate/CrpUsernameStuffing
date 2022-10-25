@@ -59,6 +59,7 @@ $CfgFileBackup = $RootFilePath + "$((Get-Date).ToString("yyyyMMdd_HHmmss"))_" + 
 Export-NpsConfiguration -Path $ExportFilePath
 Copy-Item $ExportFilePath $CfgFileBackup
 
+#This function will set the samAccountNames of the group members.  The policy 1 example below shows it's use with "Start-GetUsernames"
 Function Start-GetUsernames {
     foreach ($Group in $Groups){ 
     $members = Get-ADGroupMember -Identity $Group -Server $Domain -Credential $DomainCreds -Recursive|Get-ADUser -Properties displayname, samaccountname|Sort-Object -Property displayname|Select-Object DisplayName, samAccountName
@@ -84,6 +85,7 @@ Function Start-GetUsernames {
 $limit = (Get-Date).AddDays($DaysToKeep).Date
 }
 
+#This function will set the UserPrincipalNames of the group members.  The policy 2 example below shows it's use with "Start-UPNs"
 Function Start-GetUPNs {
     foreach ($Group in $Groups){ 
     $members = Get-ADGroupMember -Identity $Group -Server $Domain -Credential $DomainCreds -Recursive|Get-ADUser -Properties displayname, userPrincipalName|Sort-Object -Property displayname|Select-Object DisplayName, userPrincipalName
