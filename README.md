@@ -1,7 +1,11 @@
 # CrpUsernameStuffing
 <b>PS Script to stuff usernames into NPS Connection Request Policies</b>
 
-<b>Version 2.5.1 released 10/23/2022</b><br>
+<b>Version 2.6 released 10/25/2022</b><br>
+-Added a second function used to pull and populate UserPrincipalNames<br>
+Version 2.5.1 released 10/23/2022<br>
+-Added documentation on Connection Request Policy names and the use of special characters, such as the umlaut.<br>
+Version 2.5 released 10/22/2020<br>
 -Updated user string regex syntax (see bottom for details)<br>
 
 <b>Tutorial: https://youtu.be/7be2yuOwUHs</b><br>
