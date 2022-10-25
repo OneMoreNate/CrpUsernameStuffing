@@ -85,7 +85,7 @@ Function Start-GetUsernames {
 $limit = (Get-Date).AddDays($DaysToKeep).Date
 }
 
-#This function will set the UserPrincipalNames of the group members.  The policy 2 example below shows it's use with "Start-UPNs"
+#This function will set the UserPrincipalNames of the group members.  The policy 2 example below shows it's use with "Start-GetUPNs"
 Function Start-GetUPNs {
     foreach ($Group in $Groups){ 
     $members = Get-ADGroupMember -Identity $Group -Server $Domain -Credential $DomainCreds -Recursive|Get-ADUser -Properties displayname, userPrincipalName|Sort-Object -Property displayname|Select-Object DisplayName, userPrincipalName
