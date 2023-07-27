@@ -1,7 +1,8 @@
-# Version 2.7 11/2/2022
+# Version 2.8 07/27/2023
 # Author: Nate Harris (nathar@microsoft.com) with help from Clayton Seymour (clayse@microsoft.com).
 # 
 # Changelog
+# -2.8 Added comments on how to run without embedded credentials in the script.  Commented on line 68 and 96 of the script
 # -2.7 adds third function to set UPNs and samAccountNames in the policies
 # -2.6 adds a second function to set UserPrincipalNames instead of samAccountNames
 # -2.5.1 updated known limitations documentation to avoid "User-Name" or "Benutzer-Auth" (or other localized iterations thereof) in the names of the Connection Request Policies as this will prevent the script from being
@@ -64,6 +65,8 @@ Copy-Item $ExportFilePath $CfgFileBackup
 Function Start-GetUsernames {
     foreach ($Group in $Groups){ 
     $members = Get-ADGroupMember -Identity $Group -Server $Domain -Credential $DomainCreds -Recursive|Get-ADUser -Properties displayname, samaccountname|Sort-Object -Property displayname|Select-Object DisplayName, samAccountName
+	# If you don't want to provide credentials in the script and would prefer to use the credentials that the scheduled task is running under, then comment out the line above and remove the comment hashtag from the line below
+	#$members = Get-ADGroupMember -Identity $Group -Server $Domain -Recursive|Get-ADUser -Properties displayname, samaccountname|Sort-Object -Property displayname|Select-Object DisplayName, samAccountName
     $members | foreach{ 
       $member = $_.samaccountname
       $memberlist = $memberlist + "|^" + $member + "$"
@@ -90,6 +93,8 @@ $limit = (Get-Date).AddDays($DaysToKeep).Date
 Function Start-GetUPNs {
     foreach ($Group in $Groups){ 
     $members = Get-ADGroupMember -Identity $Group -Server $Domain -Credential $DomainCreds -Recursive|Get-ADUser -Properties displayname, userPrincipalName|Sort-Object -Property displayname|Select-Object DisplayName, userPrincipalName
+	# If you don't want to provide credentials in the script and would prefer to use the credentials that the scheduled task is running under, then comment out the line above and remove the comment hashtag from the line below
+	#$members = Get-ADGroupMember -Identity $Group -Server $Domain -Recursive|Get-ADUser -Properties displayname, samaccountname|Sort-Object -Property displayname|Select-Object DisplayName, samAccountName
     $members | foreach{ 
       $member = $_.userPrincipalName
       $memberlist = $memberlist + "|^" + $member + "$"
