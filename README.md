@@ -1,6 +1,8 @@
 # CrpUsernameStuffing
 <b>PS Script to stuff usernames into NPS Connection Request Policies</b>
 
+<b>Version 2.8 release 07/27/23</b><br>
+- added comments on line 68 and 96 of the script on how to run this script without embedding credentials in the script<br>
 <b>Version 2.7 release 11/2/22</b><br>
 - adds function to stuffs both UPNs and samAccountNames<br>
 <b>Version 2.6 released 10/25/2022</b><br>
